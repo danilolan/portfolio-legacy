@@ -1,0 +1,26 @@
+font-face{
+    font-family: 'Particle';
+    src: url('../assets/Particle-Regular.otf');
+    font-display: swap;
+}
+
+*{
+    font-family: 'Particle';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 50px;
+}
+
+body{
+    
+}
+
+button{
+    cursor: pointer;
+}
+:root{
+    --white: #FFFFFF;
+
+    --black: #101010;
+}

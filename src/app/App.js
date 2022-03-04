@@ -1,8 +1,8 @@
-import './App.css';
+import styles from '../styles/app.module.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.app}>
       Ola 
     </div>
   );
