@@ -20,7 +20,7 @@ let myGameArea = {
 
 function startGame() {
     myGameArea.start();
-    myGamePiece = new Player(myGameArea, 30, 30, "red", 10, 120, 10);
+    myGamePiece = new Player(myGameArea, 30, 30, "red", 10, 120, {x: 5, y: 10});
 }
 
 function updateGameArea() {
