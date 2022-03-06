@@ -18,9 +18,9 @@ let myGameArea = {
     }
 }
 
-function startGame() {
+function startGame(getPos) {
     myGameArea.start();
-    myGamePiece = new Player(myGameArea, 30, 30, "red", 10, 120, {x: 5, y: 10});
+    myGamePiece = new Player(myGameArea, getPos, 30, 30, "red", 10, 120, {x: 8, y: 10});
 }
 
 function updateGameArea() {
@@ -30,7 +30,7 @@ function updateGameArea() {
 
 function Game(props) {
     useEffect(() => {
-        startGame()
+        startGame(props.getPos)
     }, []);
 
     return ( 

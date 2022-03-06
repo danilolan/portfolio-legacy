@@ -3,7 +3,9 @@ function keyHandler(x){
 }
 
 class player{
-    constructor(myGameArea, width, height, color, x, y, force ){
+    constructor(myGameArea, getPos, width, height, color, x, y, force ){
+        this.getPos = getPos
+
         this.width = width;
         this.height = height;
 
@@ -68,7 +70,9 @@ class player{
         this.x += this.speedX;
         this.y += this.speedY
 
-        this.colisions()     
+        this.colisions()
+        
+        this.getPos(this.x)
     }
 
     gravity(){
