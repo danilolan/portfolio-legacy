@@ -10,6 +10,7 @@ font-face{
     padding: 0;
     box-sizing: border-box;
     font-size: 50px;
+    color: #FFFFFF;
 }
 
 body{
@@ -23,4 +24,10 @@ button{
     --white: #FFFFFF;
 
     --black: #101010;
+}
+
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
 }

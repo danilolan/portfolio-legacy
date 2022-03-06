@@ -1,11 +1,10 @@
 import styles from '../styles/app.module.scss';
-
-import Game from '../components/game'
+import Home from '../pages/Home'
 
 function App() {
   return (
     <div className={styles.app}>
-      <Game/>
+      <Home/>
     </div>
   );
 }
