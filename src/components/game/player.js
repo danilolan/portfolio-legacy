@@ -22,6 +22,9 @@ class player{
         this.speedX = 0
         this.speedY = 0
 
+        this.isGroundColiding = false
+        this.jumpCharge = 0
+
         this.myGameArea = myGameArea
 
 
@@ -31,12 +34,17 @@ class player{
             if(keyName === 'ArrowRight'){
                 this.speedX = this.force.x
             }
-            else if(keyName === 'ArrowLeft'){
+            if(keyName === 'ArrowLeft'){
                 this.speedX = -this.force.x
             }
-            else if(keyName === 'ArrowUp'){
-                console.log(keyName)
-                this.speedY = -20
+            if(keyName === 'ArrowUp'){
+                if(this.jumpCharge){
+                    this.speedY = -20
+                    this.y -= 1
+                    this.isGroundColiding = false
+                    
+                    this.jumpCharge -= 1
+                }
             }
         }, false);
 
@@ -48,7 +56,7 @@ class player{
             else if(keyName === 'ArrowLeft'){
                 this.speedX = 0
             }
-        }, false);
+        }, false);      
     }
 
     update(){
@@ -64,7 +72,9 @@ class player{
         let ctx = this.myGameArea.context;
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
-        
+
+        this.verifyJump()
+
         this.gravity()        
         
         this.x += this.speedX;
@@ -76,13 +86,27 @@ class player{
     }
 
     gravity(){
-        if(this.speedY < 20){
+        if(this.isGroundColiding)
+            this.speedY = 0
+
+        else if(this.speedY < 20){
             this.speedY += this.accY
         }           
     }
+
     colisions(){
-        if(this.dimensions.mybottom > window.innerHeight){
-            this.y = this.yAnt
+        if(this.dimensions.mybottom >= window.innerHeight){   
+            this.y = window.innerHeight - this.height 
+            this.isGroundColiding = true
+        }
+        else{
+            this.isGroundColiding = false
+        }
+    }
+
+    verifyJump(){
+        if(this.isGroundColiding){
+            this.jumpCharge = 2
         }
     }
 }
