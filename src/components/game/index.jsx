@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
 
 import Player from './player'
+import Scenario from './scenario'
 
-let myGamePiece
+let player
+let scenario 
   
 let myGameArea = {
     canvas : document.createElement("canvas"),
@@ -20,12 +22,16 @@ let myGameArea = {
 
 function startGame(getPos) {
     myGameArea.start();
-    myGamePiece = new Player(myGameArea, getPos, 30, 30, "red", 10, 120, {x: 8, y: 10});
+    player = new Player(myGameArea, 30, 30, "red", ((window.innerWidth / 2) - 100) , 125, {x: 10, y: 10});
+    scenario = new Scenario(myGameArea, 0, 0, true, getPos)  
+    scenario.start()
 }
 
 function updateGameArea() {
     myGameArea.clear();
-    myGamePiece.update();
+    scenario.setPos(player.speedX)
+    scenario.update();
+    player.update();
 }
 
 function Game(props) {

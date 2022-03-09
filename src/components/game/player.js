@@ -1,11 +1,5 @@
-function keyHandler(x){
-    console.log('entrou')
-}
-
 class player{
-    constructor(myGameArea, getPos, width, height, color, x, y, force ){
-        this.getPos = getPos
-
+    constructor(myGameArea, width, height, color, x, y, force){
         this.width = width;
         this.height = height;
 
@@ -25,6 +19,7 @@ class player{
         this.isGroundColiding = false
         this.jumpCharge = 0
 
+
         this.myGameArea = myGameArea
 
 
@@ -42,7 +37,7 @@ class player{
                     this.speedY = -20
                     this.y -= 1
                     this.isGroundColiding = false
-                    
+
                     this.jumpCharge -= 1
                 }
             }
@@ -73,16 +68,15 @@ class player{
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
 
+        this.xAbs += this.speedX
+
         this.verifyJump()
 
         this.gravity()        
-        
-        this.x += this.speedX;
+
         this.y += this.speedY
 
         this.colisions()
-        
-        this.getPos(this.x)
     }
 
     gravity(){
@@ -108,6 +102,10 @@ class player{
         if(this.isGroundColiding){
             this.jumpCharge = 2
         }
+    }
+
+    getSpeed(){
+        return this.speedX
     }
 }
 
