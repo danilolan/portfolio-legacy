@@ -4,7 +4,7 @@ import player from './player';
 
 const velocity = 5;
 
-export default function matter(){
+export default function matter(setPos){
     // create an engine
     var canvas = document.getElementById('canvas');
 
@@ -70,6 +70,7 @@ export default function matter(){
 
     Events.on(runner, 'beforeTick', () => {
         console.log('oala')
+        setPos(-boxA.position.x)
         Bounds.shift(render.bounds,
             {
                 x: boxA.position.x - window.innerWidth / 2,

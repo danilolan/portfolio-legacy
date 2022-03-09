@@ -7,11 +7,8 @@ import Game from '../components/game'
 
 function Home(props) {
   const [pos, setPos] = useState(0);
-  function getPos(pos){
-    setPos(pos)
-  }
   useEffect(() => {
-    matter()
+    matter(setPos)
   }, []);
   return (
     <div className={styles.home} style={{transform: `translateX(${pos}px)`}}>
