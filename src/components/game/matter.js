@@ -2,7 +2,7 @@ import Matter from 'matter-js';
 import { Engine, Render, Runner, Bodies, Composite, Bounds, Events } from 'matter-js';
 import player from './player';
 
-const velocity = 5;
+const velocity = 3;
 
 export default function matter(setPos){
     // create an engine
@@ -26,7 +26,10 @@ export default function matter(setPos){
     //render.canvas.height = document.documentElement.clientHeight;   
     
     // create two boxes and a ground
-    var boxA = Bodies.rectangle(400, 200, 30, 50);
+    var boxA = Bodies.rectangle(400, 200, 30, 50, {
+        frictionAir: 0.04,
+        inertia: 'Infinity'
+    });
     var boxB = Bodies.rectangle(800, 700, 80, 80, { isStatic: true });
     var ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth, 60, { isStatic: true });
 
