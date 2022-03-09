@@ -5,9 +5,13 @@ class player{
 
         this.x = x;
         this.y = y;
-        this.xAnt = x;
         this.yAnt = y;
+        this.xScenario = 0
+        this.xScenarioAnt = this.xScenario;
+        
         this.dimensions = {}
+
+        
 
         this.color = color
 
@@ -19,18 +23,24 @@ class player{
         this.isGroundColiding = false
         this.jumpCharge = 0
 
+        this.canMoveRight = true
+        this.canMoveLeft = true
 
         this.myGameArea = myGameArea
+
+        this.colliders = []
 
 
         //CONTROLES
         document.addEventListener ('keydown', (event) => {
             const keyName = event.key;
             if(keyName === 'ArrowRight'){
-                this.speedX = this.force.x
+                if(this.canMoveRight)
+                    this.speedX = this.force.x
             }
             if(keyName === 'ArrowLeft'){
-                this.speedX = -this.force.x
+                if(this.canMoveLeft)
+                    this.speedX = -this.force.x
             }
             if(keyName === 'ArrowUp'){
                 if(this.jumpCharge){
@@ -55,7 +65,7 @@ class player{
     }
 
     update(){
-        this.xAnt = this.x
+        this.xScenarioAnt = this.xScenario
         this.yAnt = this.y
         this.dimensions = {
             myleft: this.x,
@@ -64,19 +74,21 @@ class player{
             mybottom: this.y + (this.height),
         }
 
-        let ctx = this.myGameArea.context;
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
-
         this.xAbs += this.speedX
 
         this.verifyJump()
 
-        this.gravity()        
+        this.gravity() 
 
+        this.xScenario -= this.speedX
         this.y += this.speedY
 
         this.colisions()
+        console.log(this.xScenarioAnt, this.xScenario)
+
+        let ctx = this.myGameArea.context;
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     gravity(){
@@ -85,7 +97,8 @@ class player{
 
         else if(this.speedY < 20){
             this.speedY += this.accY
-        }           
+        }
+        
     }
 
     colisions(){
@@ -96,6 +109,24 @@ class player{
         else{
             this.isGroundColiding = false
         }
+
+        //console.log('myright: ', this.dimensions.myright)
+        //console.log('objright: ', this.colliders[0].myright)
+        //console.log('myleft: ', this.dimensions.myleft)
+        //console.log('objleft: ', this.colliders[0].myleft)
+
+        //console.log(this.speedX)
+
+        for(let i=0 ; i<this.colliders.length ; i++){
+            if(
+                this.dimensions.myright > this.colliders[i].myleft && this.dimensions.myleft < this.colliders[i].myright &&
+                this.dimensions.mybottom > this.colliders[i].mytop && this.dimensions.mytop < this.colliders[i].mybottom
+            ){
+                console.log('colidiu')
+                this.xScenario = this.xScenarioAnt
+            }
+            
+        }
     }
 
     verifyJump(){
@@ -104,8 +135,8 @@ class player{
         }
     }
 
-    getSpeed(){
-        return this.speedX
+    setColliders(colliders){
+        this.colliders = colliders
     }
 }
 

@@ -22,15 +22,16 @@ let myGameArea = {
 
 function startGame(getPos) {
     myGameArea.start();
-    player = new Player(myGameArea, 30, 30, "red", ((window.innerWidth / 2) - 100) , 125, {x: 10, y: 10});
+    player = new Player(myGameArea, 10, 10, "red", ((window.innerWidth / 2) - 100) , 120, {x: 10, y: 10});
     scenario = new Scenario(myGameArea, 0, 0, true, getPos)  
     scenario.start()
 }
 
 function updateGameArea() {
     myGameArea.clear();
-    scenario.setPos(player.speedX)
+    scenario.setX(player.xScenario)
     scenario.update();
+    player.setColliders(scenario.getColliders())
     player.update();
 }
 

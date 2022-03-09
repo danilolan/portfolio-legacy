@@ -47,6 +47,10 @@ class object{
         this.x = x
         this.y = y
     }
+
+    getDimensions(){
+        return this.dimensions
+    }
 }
 
 export default object
