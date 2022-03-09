@@ -1,5 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import styles from '../styles/home.module.scss';
+
+import matter from '../components/game/matter';
 
 import Game from '../components/game'
 
@@ -8,11 +10,14 @@ function Home(props) {
   function getPos(pos){
     setPos(pos)
   }
+  useEffect(() => {
+    matter()
+  }, []);
   return (
     <div className={styles.home} style={{transform: `translateX(${pos}px)`}}>
       <div>
         11111OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla
-        <Game getPos={getPos}/>
+        <canvas id='canvas'/>
       </div>
     </div>
   );
