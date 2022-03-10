@@ -3,16 +3,17 @@ import { Engine, Render, Runner, Bodies, Composite, Bounds, Events } from 'matte
 import player from './player';
 
 const velocity = 3;
+const jumpForce = 0.1
+let jumps = 0
+const initialPos = {x: 100, y: 500}
 
 export default function matter(setPos){
     // create an engine
-    var canvas = document.getElementById('canvas');
 
-    var engine = Engine.create();
-    var world = engine.world
+    let engine = Engine.create();
     
     // create a renderer
-    var render = Render.create({
+    let render = Render.create({
         element: document.body,
         engine: engine,
         options: {
@@ -22,26 +23,28 @@ export default function matter(setPos){
         }
     });
 
-    //render.canvas.width = document.documentElement.clientWidth;
-    //render.canvas.height = document.documentElement.clientHeight;   
     
     // create two boxes and a ground
-    var boxA = Bodies.rectangle(400, 200, 30, 50, {
+    let player = Bodies.rectangle(100, 500, 30, 50, {
         frictionAir: 0.04,
-        inertia: 'Infinity'
+        inertia: 'Infinity',
+        label: 'player'
     });
-    var boxB = Bodies.rectangle(800, 700, 80, 80, { isStatic: true });
-    var ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth, 60, { isStatic: true });
+    let boxB = Bodies.rectangle(800, 700, 80, 80, { isStatic: true });
+    let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth, 60, { isStatic: true });
 
     const keyHandlers = {
         KeyD: () => {
-          Matter.Body.setVelocity(boxA, {x: velocity,y: boxA.velocity.y})
+          Matter.Body.setVelocity(player, {x: velocity,y: player.velocity.y})
         },
         KeyA: () => {
-            Matter.Body.setVelocity(boxA, {x: -velocity,y: boxA.velocity.y})
+            Matter.Body.setVelocity(player, {x: -velocity,y: player.velocity.y})
         },
         KeyW: () => {
-            Matter.Body.setVelocity(boxA, {x: boxA.velocity.x, y: -10})
+            if(jumps > 0){
+                Matter.Body.applyForce(player, {x:player.position.x,y:player.position.y}, {x:player.force.x,y:-jumpForce});
+                jumps --
+            }
         },
     };
       
@@ -60,24 +63,45 @@ export default function matter(setPos){
     }); 
 
     // add all of the bodies to the world
-    Composite.add(engine.world, [boxA, boxB, ground]);
+    Composite.add(engine.world, [player, boxB, ground]);
     
     // run the renderer
     Render.run(render);
     
     // create runner
-    var runner = Runner.create();
+    let runner = Runner.create();
     
     // run the engine
     Runner.run(runner, engine);
 
     Events.on(runner, 'beforeTick', () => {
-        console.log('oala')
-        setPos(-boxA.position.x)
-        Bounds.shift(render.bounds,
-            {
-                x: boxA.position.x - window.innerWidth / 2,
-                y: 0
-            });
+        setPos(-player.position.x)
+        Bounds.shift(render.bounds,{
+            x: player.position.x - window.innerWidth / 2,
+            y: 0
+        });
+        console.log(player.position)
+        verifyDeath()
     })
+
+    Events.on(engine, 'collisionStart', function(event) {
+        let pairs = event.pairs;
+        for (let i=0; i<pairs.length; ++i) {
+            let pair = pairs[i];
+
+            if(pair.bodyA.label === 'player')
+                if(pair.collision.tangent.x)
+                    jumps = 1
+        }
+    });
+
+    function verifyDeath(){
+        if(player.position.y > 2000)
+            died()
+    }
+
+    function died(){
+        Matter.Body.set(player, 'position', initialPos)
+        Matter.Body.setVelocity(player, {x: 0, y: 0})
+    }
 }
