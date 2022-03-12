@@ -46,12 +46,11 @@ export default function matter(setPos){
             right: [document.getElementById('player_run_1')], 
             left: [document.getElementById('player_run_1_flip')]
         },
-
         state: 'idle',
         side: 'right'
 
     });
-    let boxB = Bodies.rectangle(800, 700, 80, 80, { isStatic: true });
+    let boxB = Bodies.rectangle(800, distFund(100), 80, 80, { isStatic: true });
     let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth, 60, { isStatic: true });
 
     const keyHandlers = {
@@ -146,4 +145,8 @@ export default function matter(setPos){
         Matter.Body.set(player, 'position', initialPos)
         Matter.Body.setVelocity(player, {x: 0, y: 0})
     }
+}
+
+function distFund(dist){
+    return window.innerHeight - dist
 }
