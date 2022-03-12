@@ -3,7 +3,7 @@ import styles from '../styles/home.module.scss';
 
 import matter from '../components/game/matter';
 
-import Game from '../components/game'
+import Sprites from '../components/Sprites';
 
 function Home(props) {
   const [pos, setPos] = useState(0);
@@ -15,6 +15,7 @@ function Home(props) {
       <div>
         11111OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla
         <canvas id='canvas'/>
+        <Sprites/>
       </div>
     </div>
   );
