@@ -11,13 +11,18 @@ function Home(props) {
     matter(setPos)
   }, []);
   return (
-    <div className={styles.home} style={{transform: `translateX(${pos}px)`}}>
-      <div>
-        11111OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla
-        <canvas id='canvas'/>
+    <>
+      <div className={styles.home} style={{transform: `translateX(${pos}px)`}}>
+        <section className={styles.content}>
+          11111OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla OlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOlaOla
+        </section>
+          
         <Sprites/>
       </div>
-    </div>
+
+      <div className={styles.bg_close} style={{transform: `translateX(${pos}px)`}}/>
+      <div className={styles.bg_far} style={{transform: `translateX(${pos * 0.6}px)`}}/>
+    </>
   );
 }
 

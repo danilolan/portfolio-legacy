@@ -21,7 +21,9 @@ export default function matter(setPos){
             width: document.documentElement.clientWidth,
             height: document.documentElement.clientHeight,
             hasBounds: true
-        }
+        },
+        background: 'transparent',
+        wireframeBackground: 'transparent'
     });
 
     let cv = document.getElementById('canvas');
@@ -51,7 +53,7 @@ export default function matter(setPos){
 
     });
     let boxB = Bodies.rectangle(800, distFund(100), 80, 80, { isStatic: true });
-    let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth, 60, { isStatic: true });
+    let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, 6000, 60, { isStatic: true });
 
     const keyHandlers = {
         KeyD: () => {
