@@ -1,5 +1,9 @@
+
 let cont = 0
+const nContFrames = 30
 let contFrame = 0
+let frames = 0
+let stateFrame = true
 
 let playerAnimationState = 'idle'
 /**
@@ -827,6 +831,17 @@ var Mouse = require('matter-js/src/core/Mouse');
 
         c.beginPath();
 
+        cont = cont + 1
+        if(cont === nContFrames) cont = 0
+
+        if(cont === 0){
+            frames++
+            contFrame++
+        }
+
+        if(frames === 10) frames = 0
+        if(contFrame === 1) contFrame = 0
+
         // render all bodies
         for (i = 0; i < bodies.length; i++) {
             body = bodies[i];
@@ -835,16 +850,8 @@ var Mouse = require('matter-js/src/core/Mouse');
                 continue;
 
             // handle compound parts
-            
-            if(body.label === 'player'){
-                cont = cont + 1
-                if(cont === 61){
-                    cont = 0
-                    if(contFrame === 1)
-                        contFrame = 0
-                    else
-                        contFrame ++
-                }
+
+            if(body.label === 'player'){               
                 if(body.side === 'right'){
                     switch(body.state){
                         case 'idle':
@@ -893,6 +900,23 @@ var Mouse = require('matter-js/src/core/Mouse');
     
                     c.lineTo(part.vertices[0].x, part.vertices[0].y);
                 }
+            }
+
+            if(body.label === 'coin'){
+                const width = body.bounds.max.x - body.bounds.min.x
+                const height = body.bounds.max.y - body.bounds.min.y
+                
+                c.drawImage(
+                    body.sprite,
+                    width * frames,
+                    0, 
+                    64,
+                    64,
+                    body.position.x - width/2, 
+                    body.position.y - height/2,
+                    width,
+                    height
+                );
             }
             else{
                 for (k = body.parts.length > 1 ? 1 : 0; k < body.parts.length; k++) {

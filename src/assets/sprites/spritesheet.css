@@ -1,0 +1,197 @@
+.coin {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.coin-Gold_1 {
+    width: 64px;
+    height: 64px;
+    background-position: 0 0;
+}
+
+.coin-Gold_10 {
+    width: 64px;
+    height: 64px;
+    background-position: -64px 0;
+}
+
+.coin-Gold_11 {
+    width: 64px;
+    height: 64px;
+    background-position: -128px 0;
+}
+
+.coin-Gold_12 {
+    width: 64px;
+    height: 64px;
+    background-position: -192px 0;
+}
+
+.coin-Gold_13 {
+    width: 64px;
+    height: 64px;
+    background-position: -256px 0;
+}
+
+.coin-Gold_14 {
+    width: 64px;
+    height: 64px;
+    background-position: -320px 0;
+}
+
+.coin-Gold_15 {
+    width: 64px;
+    height: 64px;
+    background-position: -384px 0;
+}
+
+.coin-Gold_16 {
+    width: 64px;
+    height: 64px;
+    background-position: -448px 0;
+}
+
+.coin-Gold_17 {
+    width: 64px;
+    height: 64px;
+    background-position: -512px 0;
+}
+
+.coin-Gold_18 {
+    width: 64px;
+    height: 64px;
+    background-position: -576px 0;
+}
+
+.coin-Gold_19 {
+    width: 64px;
+    height: 64px;
+    background-position: -640px 0;
+}
+
+.coin-Gold_2 {
+    width: 64px;
+    height: 64px;
+    background-position: -704px 0;
+}
+
+.coin-Gold_20 {
+    width: 64px;
+    height: 64px;
+    background-position: -768px 0;
+}
+
+.coin-Gold_21 {
+    width: 64px;
+    height: 64px;
+    background-position: -832px 0;
+}
+
+.coin-Gold_22 {
+    width: 64px;
+    height: 64px;
+    background-position: -896px 0;
+}
+
+.coin-Gold_23 {
+    width: 64px;
+    height: 64px;
+    background-position: -960px 0;
+}
+
+.coin-Gold_24 {
+    width: 64px;
+    height: 64px;
+    background-position: -1024px 0;
+}
+
+.coin-Gold_25 {
+    width: 64px;
+    height: 64px;
+    background-position: -1088px 0;
+}
+
+.coin-Gold_26 {
+    width: 64px;
+    height: 64px;
+    background-position: -1152px 0;
+}
+
+.coin-Gold_27 {
+    width: 64px;
+    height: 64px;
+    background-position: -1216px 0;
+}
+
+.coin-Gold_28 {
+    width: 64px;
+    height: 64px;
+    background-position: -1280px 0;
+}
+
+.coin-Gold_29 {
+    width: 64px;
+    height: 64px;
+    background-position: -1344px 0;
+}
+
+.coin-Gold_3 {
+    width: 64px;
+    height: 64px;
+    background-position: -1408px 0;
+}
+
+.coin-Gold_30 {
+    width: 64px;
+    height: 64px;
+    background-position: -1472px 0;
+}
+
+.coin-Gold_4 {
+    width: 64px;
+    height: 64px;
+    background-position: -1536px 0;
+}
+
+.coin-Gold_5 {
+    width: 64px;
+    height: 64px;
+    background-position: -1600px 0;
+}
+
+.coin-Gold_6 {
+    width: 64px;
+    height: 64px;
+    background-position: -1664px 0;
+}
+
+.coin-Gold_7 {
+    width: 64px;
+    height: 64px;
+    background-position: -1728px 0;
+}
+
+.coin-Gold_8 {
+    width: 64px;
+    height: 64px;
+    background-position: -1792px 0;
+}
+
+.coin-Gold_9 {
+    width: 64px;
+    height: 64px;
+    background-position: -1856px 0;
+}
+
+.coin-download {
+    width: 64px;
+    height: 64px;
+    background-position: -1920px 0;
+}
+
+.coin-download {
+    width: 64px;
+    height: 64px;
+    background-position: -1984px 0;
+}

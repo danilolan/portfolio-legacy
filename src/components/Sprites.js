@@ -11,6 +11,8 @@ import player_run_2_flip from '../assets/sprites/player_run_2_flip.png'
 import player_idle_1_flip from '../assets/sprites/player_idle_1_flip.png'
 import player_idle_2_flip from '../assets/sprites/player_idle_2_flip.png'
 
+import coin_1 from '../assets/sprites/coin_1.png'
+
 function Sprites() {
     return ( 
         <div style={{display: 'none'}}>
@@ -26,6 +28,8 @@ function Sprites() {
 
             <img src={player_idle_1_flip} alt="" id='player_idle_1_flip'/>
             <img src={player_idle_2_flip} alt="" id='player_idle_2_flip'/>
+
+            <img src={coin_1} alt="" id='coin_1'/>
         </div>
      );
 }

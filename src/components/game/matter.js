@@ -1,12 +1,14 @@
 import Matter from 'matter-js';
 import { Engine, Runner, Bodies, Composite, Bounds, Events } from 'matter-js';
 import customRender from './render'
+import coin from '../../assets/sprites/coin_1.png'
 
 const velocity = 3;
 const jumpForce = 4
 let jumps = 0
 let isJumping = false
 const initialPos = {x: 100, y: 500}
+let score = 0
 
 export default function matter(setPos){
     // create an engine
@@ -18,7 +20,7 @@ export default function matter(setPos){
         element: document.body,
         engine: engine,
         options: {
-            width: document.documentElement.clientWidth,
+            width: 1920,
             height: document.documentElement.clientHeight,
             hasBounds: true
         },
@@ -52,8 +54,24 @@ export default function matter(setPos){
         side: 'right'
 
     });
+
     let boxB = Bodies.rectangle(800, distFund(100), 80, 80, { isStatic: true });
-    let ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight, 6000, 60, { isStatic: true });
+    let ground = Bodies.rectangle(5000 / 2, window.innerHeight, 6000, 60, { isStatic: true });
+    let coins = [
+        Bodies.rectangle(700, distFund(100), 64, 64, { 
+            isStatic: true, 
+            label: 'coin', 
+            isSensor: true, 
+            sprite: document.getElementById('coin_1'),
+        }),
+        Bodies.rectangle(1200, distFund(100), 64, 64, { 
+            isStatic: true, 
+            label: 'coin', 
+            isSensor: true, 
+            sprite: document.getElementById('coin_1'),
+        }),
+    ]
+
 
     const keyHandlers = {
         KeyD: () => {
@@ -86,7 +104,7 @@ export default function matter(setPos){
     }); 
 
     // add all of the bodies to the world
-    Composite.add(engine.world, [player, boxB, ground]);
+    Composite.add(engine.world, [player, boxB, ground, ...coins]);
     
     // run the renderer
     customRender.run(render);
@@ -100,7 +118,7 @@ export default function matter(setPos){
     Events.on(runner, 'beforeTick', () => {
         setPos(-player.position.x)
         Bounds.shift(render.bounds,{
-            x: player.position.x - window.innerWidth / 2,
+            x: player.position.x - 400,
             y: 0
         });
         verifyDeath()
@@ -112,14 +130,22 @@ export default function matter(setPos){
 
     Events.on(engine, 'collisionStart', function(event) {
         let pairs = event.pairs;
-        for (let i=0; i<pairs.length; ++i) {
-            let pair = pairs[i];
-
-            if(pair.bodyA.label === 'player')
-                if(pair.collision.tangent.x)
+        pairs.forEach(pair => {
+            if(pair.bodyA.label === 'player' || pair.bodyB.label === 'player'){
+                if(pair.collision.tangent.x){
                     jumps = 1
                     isJumping = false
-        }
+                }
+            }
+            if(pair.bodyA.label === 'coin'){
+                addScore()
+                Matter.Composite.remove(engine.world, pair.bodyA);
+            }
+            else if(pair.bodyB.label === 'coin'){
+                addScore()
+                Matter.Composite.remove(engine.world, pair.bodyB);
+            }
+        })
     });
 
     function verifyDeath(){
@@ -146,6 +172,10 @@ export default function matter(setPos){
     function died(){
         Matter.Body.set(player, 'position', initialPos)
         Matter.Body.setVelocity(player, {x: 0, y: 0})
+    }
+
+    function addScore(){
+        score ++
     }
 }
 
