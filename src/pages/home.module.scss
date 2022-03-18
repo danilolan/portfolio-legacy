@@ -1,22 +1,12 @@
-$width: 5000px;
 
 .home{
-    width: $width;
+    width: var(--width);
     height: 100vh;
     position: relative;
     z-index: 5;
-
-    .content{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: $width;
-        height: 100vh;
-    }
-
 }
 .bg_close{
-    width: $width;
+    width: var(--width);
     height: 100vh;
     background-image: url('../assets/sprites/background_close.png');
     background-repeat: repeat-x;
@@ -29,7 +19,7 @@ $width: 5000px;
 }   
 
 .bg_far{
-    width: $width;
+    width: var(--width);
     height: 100vh;
     background-image: url('../assets/sprites/background_far.png');
     background-repeat: repeat-x;

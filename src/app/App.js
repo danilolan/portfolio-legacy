@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import styles from '../styles/app.module.scss';
+import styles from './app.module.scss';
 import Home from '../pages/Home'
 
 function App() {
