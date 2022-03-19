@@ -1,0 +1,42 @@
+.custom-shape-divider-top-1647646271 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 920;
+}
+
+.custom-shape-divider-top-1647646271 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 103px;
+}
+
+.custom-shape-divider-top-1647646271 .shape-fill {
+    fill: #101010;
+}
+
+.f{
+    animation: wave 7s ease-in-out infinite;
+}
+.s{
+    animation: wave 5s ease-in-out infinite;
+}
+.t{
+    animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-100px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
