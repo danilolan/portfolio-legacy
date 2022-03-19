@@ -1,11 +1,9 @@
 import React from 'react';
-import Header from '../../components/header/Header';
 import styles from './content.module.scss'
 
 function Content() {
     return ( 
         <div className={styles.content}>
-            <Header/>
             <br />
             <br />
             <br />

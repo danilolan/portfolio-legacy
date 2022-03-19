@@ -5,9 +5,10 @@ import matter from '../components/game/matter';
 
 import Sprites from '../components/Sprites';
 import Content from './content/Content';
+import Header from '../components/header/Header';
 
 
-const isDesktop = false //window.innerWidth >= 970
+const isDesktop = false//window.innerWidth >= 970
 
 function Home(props) {
   const [pos, setPos] = useState(0);
@@ -19,6 +20,7 @@ function Home(props) {
   return (
     isDesktop ? 
     <>
+      <Header/>
       <div className={styles.home} style={{transform: `translateX(${pos}px)`}}>
         <Content/>  
         <Sprites/>
@@ -29,6 +31,7 @@ function Home(props) {
     </>
     :
     <>
+      <Header/>
       <div className={styles.home}>
         <Content/> 
       </div>
