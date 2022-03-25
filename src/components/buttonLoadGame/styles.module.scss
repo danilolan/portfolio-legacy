@@ -1,0 +1,39 @@
+.button_load_game_container{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: max-content;
+    font-size: 0.5rem;
+    letter-spacing: 1.2;
+    color: rgb(145, 145, 145);
+    display: flex;
+    align-items: center;
+    z-index: 900;
+
+    button{
+        background-color: transparent;
+        border: rgb(145, 145, 145) 1px solid;
+        border-radius: 10px;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        .check_icon{
+            width: 80%;
+            height: 80%;
+            background-color: rgb(36, 77, 36);
+            z-index: 901;
+            margin: 0;
+            border-radius: 7px;
+        }
+    }
+}

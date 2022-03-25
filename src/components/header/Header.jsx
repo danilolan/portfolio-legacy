@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import styles from './header.module.scss'
-import shaper from './shaper.css'
+import styles from './styles.module.scss'
+import './shaper.css'
 
 import githubImg from '../../assets/github.png'
 import linkedinImg from '../../assets/linkedin.png'

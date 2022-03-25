@@ -6,25 +6,34 @@ import matter from '../components/game/matter';
 import Sprites from '../components/Sprites';
 import Content from './content/Content';
 import Header from '../components/header/Header';
+import ButtonLoadGame from '../components/buttonLoadGame/ButtonLoadGame';
+import { use } from 'matter-js';
 
-
-const isDesktop = false//window.innerWidth >= 970
+const isDesktop = window.innerWidth >= 970
+let loadGame = false
+if(localStorage.getItem('loadGame') === 'true')
+  loadGame = isDesktop ? true : false
+  console.log(isDesktop)
 
 function Home(props) {
   const [pos, setPos] = useState(0);
 
   useEffect(() => {
-    if(isDesktop) matter(setPos) 
+    if(loadGame) matter(setPos)  
   }, []);
 
   return (
-    isDesktop ? 
+    loadGame ? 
     <>
       <Header/>
+
       <div className={styles.home} style={{transform: `translateX(${pos}px)`}}>
         <Content/>  
         <Sprites/>
       </div>
+
+      <ButtonLoadGame/>
+      
 
       <div className={styles.bg_close} style={{transform: `translateX(${pos}px)`}}/>
       <div className={styles.bg_far} style={{transform: `translateX(${pos * 0.3}px)`}}/>
@@ -32,9 +41,12 @@ function Home(props) {
     :
     <>
       <Header/>
+
       <div className={styles.home}>
         <Content/> 
       </div>
+      
+      <ButtonLoadGame/>
     </>
 
   );
