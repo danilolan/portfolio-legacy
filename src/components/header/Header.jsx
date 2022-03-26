@@ -16,12 +16,15 @@ function Header() {
                 <div className={styles.social_container}>
                     <a href={process.env.REACT_APP_INSTAGRAM}>
                         <img src={instagramImg} alt="image instagram..." />
+                        INSTAGRAM
                     </a>
                     <a href={process.env.REACT_APP_GITHUB}>
                         <img src={githubImg} alt="image github..." />
+                        GITHUB
                     </a>
                     <a href={process.env.REACT_APP_LINKEDIN}>
                         <img src={linkedinImg} alt="image linkedin..." />
+                        LINKEDIN
                     </a>  
                 </div>
 

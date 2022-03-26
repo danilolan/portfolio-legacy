@@ -10,10 +10,16 @@ import ButtonLoadGame from '../components/buttonLoadGame/ButtonLoadGame';
 import { use } from 'matter-js';
 
 const isDesktop = window.innerWidth >= 970
-let loadGame = false
-if(localStorage.getItem('loadGame') === 'true')
+let loadGame = true
+if(localStorage.getItem('loadGame') === 'true'){
   loadGame = isDesktop ? true : false
-  console.log(isDesktop)
+}
+else if(localStorage.getItem('loadGame') === 'false'){
+  loadGame = false
+}
+else{
+  loadGame = isDesktop ? true : false
+}
 
 function Home(props) {
   const [pos, setPos] = useState(0);

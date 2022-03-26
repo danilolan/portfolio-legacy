@@ -9,8 +9,11 @@ function ButtonLoadGame() {
         const loadGame = localStorage.getItem('loadGame')
         if(loadGame === 'true')
             setIsActive(true)
+        else if(loadGame === 'false')
+            setIsActive(false)  
         else
-            setIsActive(false)
+            setIsActive(true)
+            
     }, []);
 
     useEffect(() => {
