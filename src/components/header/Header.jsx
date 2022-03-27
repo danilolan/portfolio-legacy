@@ -29,7 +29,7 @@ function Header() {
                 </div>
 
                 <div className={styles.logo}>
-                    DH
+                    
                 </div>
 
                 <button 

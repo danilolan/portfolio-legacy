@@ -4,4 +4,6 @@
     left: 0;
     width: var(--width);
     height: 100vh;
+    display: flex;
+    flex-direction: row;
 }
