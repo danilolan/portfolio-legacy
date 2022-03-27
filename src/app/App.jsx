@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React from 'react';
 import styles from './app.module.scss';
 import Home from '../pages/Home'
 
+
 function App() {
-  
   return (
-    <div className={styles.app}>
+    <div className={styles.app} id='app'>
 
         <Home/>
 

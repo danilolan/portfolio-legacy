@@ -15,7 +15,10 @@ font-face{
 
 body{
     background-color: #101010;
-    overflow: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
 }
 
 button{

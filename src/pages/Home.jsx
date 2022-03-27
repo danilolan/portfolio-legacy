@@ -21,12 +21,36 @@ else{
   loadGame = isDesktop ? true : false
 }
 
+let cont = 0
+
 function Home(props) {
   const [pos, setPos] = useState(0);
 
   useEffect(() => {
     if(loadGame) matter(setPos)  
+
+    window.addEventListener("wheel", event => {
+      if(event.deltaY < 0){
+        cont += 25
+        if(cont > 0) cont = 0
+        setPos(cont)
+      }
+      else{
+        cont -= 25
+        setPos(cont)
+      }
+    })
+
   }, []);
+
+  console.log(pos)
+
+  useEffect(() => {
+    
+  }, [pos]);
+
+  
+
 
   return (
     loadGame ? 
@@ -48,7 +72,7 @@ function Home(props) {
     <>
       <Header/>
 
-      <div className={styles.home}>
+      <div className={styles.home} style={{transform: `translateX(${pos}px)`, transition: '0.3s'}}>
         <Content/> 
       </div>
       
