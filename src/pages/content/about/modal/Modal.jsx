@@ -8,27 +8,33 @@ function Modal({ isOpen, setIsOpen }) {
     return ReactDOM.createPortal( 
         <div className={styles.modal_container} style={ isOpen ? {display: 'flex'} : {display: 'none'}}>
             <div className={styles.modal}>
-                dsdsds
+                <div className={styles.modal_box}>
+                    dsdsds
 
-                dsdsds
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                
+                    dsdsds
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                </div>      
             </div>
+            <button onClick={ () => setIsOpen(false)}>
+                <div className={styles.bar}/>
+                <div className={styles.bar}/>
+            </button>
         </div>,
         portalRoot
      );
