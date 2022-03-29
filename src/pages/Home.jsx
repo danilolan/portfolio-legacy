@@ -21,7 +21,7 @@ else{
   loadGame = isDesktop ? true : false
 }
 
-let cont = 0
+let cont = -window.innerWidth
 
 function Home(props) {
   const [pos, setPos] = useState(0);
@@ -29,17 +29,18 @@ function Home(props) {
   useEffect(() => {
     if(loadGame) matter(setPos)  
 
-    window.addEventListener("wheel", event => {
+    setPos(cont)
+    /* window.addEventListener("wheel", event => {
       if(event.deltaY < 0){
-        cont += 25
+        cont += 150
         if(cont > 0) cont = 0
         setPos(cont)
       }
       else{
-        cont -= 25
+        cont -= 150
         setPos(cont)
       }
-    })
+    }) */
 
   }, []);
 
@@ -72,7 +73,7 @@ function Home(props) {
     <>
       <Header/>
 
-      <div className={styles.home} style={{transform: `translateX(${pos}px)`, transition: '0.3s'}}>
+      <div className={styles.home} >
         <Content/> 
       </div>
       

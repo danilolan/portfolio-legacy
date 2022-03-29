@@ -11,7 +11,7 @@ function Header() {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     
     return ( 
-        <header>
+        <header style={menuIsOpen ? {height: '100vh'} : {height: '100px'}}>
             <div className={styles.header_container}>
                 <div className={styles.social_container}>
                     <a href={process.env.REACT_APP_INSTAGRAM}>

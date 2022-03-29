@@ -11,6 +11,10 @@ font-face{
     box-sizing: border-box;
     font-size: 50px;
     color: #FFFFFF;
+
+    &::-webkit-scrollbar-track {
+        background: orange;        /* color of the tracking area */
+    }
 }
 
 body{

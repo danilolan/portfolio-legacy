@@ -1,9 +1,12 @@
 
 .home{
-    width: var(--width);
+    width: 3840px;
     height: 100vh;
     position: relative;
     z-index: 5;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
 .bg_close{
     width: var(--width);
