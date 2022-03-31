@@ -7,7 +7,7 @@ import Modal from './modal/Modal';
 import personalImage from '../../../assets/personal.jpg'
 
 function About() {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     return ( 
         <>

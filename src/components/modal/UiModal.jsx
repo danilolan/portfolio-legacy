@@ -8,7 +8,7 @@ function Modal({ isOpen, setIsOpen, children }) {
     return ReactDOM.createPortal( 
         <div className={styles.modal_container} style={ isOpen ? {display: 'flex'} : {display: 'none'}}>
             <div className={styles.modal}>
-                <div className={styles.modal_box}>
+                <div className={styles.modal_box} id='modal-box'>
                     {children}
                 </div>      
             </div>

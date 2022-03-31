@@ -13,6 +13,7 @@
     box-sizing: border-box;
     margin-top: 20px;
 
+
     .timeline{
         display: flex;
         align-items: center;
@@ -65,6 +66,13 @@
             background: rgb(255,255,255);
             background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
         }
+
+        [id=timeline]{
+            animation: timeline 1s ease-out;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+            opacity: 0;
+        }
     }
     .text{
         font-family: 'Montserrat', sans-serif !important;
@@ -98,5 +106,38 @@ p{
         font-size: 0.4rem;
         letter-spacing: 0.03rem;
         line-height: 1.4;
+    }
+}
+
+[id=text]{
+    animation: text 1s ease-out .5s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    opacity: 0;
+    &:nth-child(1){
+        animation-play-state: running;
+    }
+    &:nth-child(2){
+        animation-play-state: running;
+    }
+}
+
+@keyframes timeline {
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes text {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }

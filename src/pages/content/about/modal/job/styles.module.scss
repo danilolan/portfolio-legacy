@@ -46,3 +46,21 @@
         }
     }
 }
+
+[id=job]{
+    animation: job 1s ease-out;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    opacity: 0;
+}
+
+
+@keyframes job {
+    0%{
+        transform: translateX(600px);
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}

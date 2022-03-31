@@ -23,7 +23,7 @@ function Job({image, name, company, begin, end, showInterval, withoutPadding }) 
     }
 
     return ( 
-        <div className={styles.job}>
+        <div className={styles.job} id='job'>
             <img src={image} alt={company} style={{padding: withoutPadding ? '0px' : '7px'}}/>
             <div className={styles.content}>
                 <div className={styles.row}>
