@@ -1,0 +1,74 @@
+.modal_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 950;
+    backdrop-filter: brightness(0.1) blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal{
+        width: 900px;
+        height: 90vh;
+        background-color: var(--black);
+        border: 2px solid white;
+        border-radius: 30px;
+        padding: 50px 10px;
+        padding-left: 30px;
+        overflow: hidden;
+        animation: in .5s ease-in-out;
+        -webkit-box-shadow: 0px 0px 33px 8px rgba(255,255,255,0.25); 
+        box-shadow: 0px 0px 33px 8px rgba(255,255,255,0.25);
+
+        .modal_box{
+            overflow-y: scroll;
+            height: 100%;
+            position: relative;
+            overflow-x: hidden;
+        }
+    }
+
+    button{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 52px;
+        height: 52px;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .bar{
+            width: 40px;
+            height: 2px;
+            background-color: white;
+            position: absolute;
+
+            &:nth-child(1){
+                transform: rotate(45deg);
+            }
+            &:nth-child(2){
+                transform: rotate(-45deg);
+            }
+        }
+
+        transition: 0.3s;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+}
+
+@keyframes in {
+    0% {
+        transform: translate(-100vw);
+    }
+    100% {
+        transform: translate(0px);
+    }
+}

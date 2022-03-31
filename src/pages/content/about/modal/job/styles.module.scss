@@ -1,0 +1,48 @@
+.job{
+    display: flex;
+    height: max-content;
+    width: 100%;
+    margin: 50px 0px;
+    align-items: center;
+
+    img{
+        box-sizing: border-box;
+        width: 80px;
+        height: 80px;
+        padding: 7px;
+        background-color: white;
+        border-radius: 5px;
+        margin: 0px;
+    }
+    .content{
+        margin-left: 10px;
+
+        .row{
+            display: flex;
+            flex-direction:  row;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.4rem;
+            font-weight: 300;
+            align-items: center;
+            letter-spacing: 0.03rem;
+           
+            .dot{
+                width: 5px;
+                height: 5px;
+                background-color: white;
+                border-radius: 50%;
+                margin: 0px 20px;
+            }
+            &:nth-child(1){
+                font-weight: 400;
+            }
+            &:nth-child(2){
+                font-size: 0.35rem;
+                margin: 3px 0px 5px 0px;
+            }
+            &:nth-child(3){
+                font-size: 0.3rem;
+            }
+        }
+    }
+}

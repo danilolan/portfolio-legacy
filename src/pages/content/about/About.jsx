@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import styles from './styles.module.scss'
 
+import UiModal from '../../../components/modal/UiModal';
 import Modal from './modal/Modal';
 
 import personalImage from '../../../assets/personal.jpg'
 
 function About() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     return ( 
         <>
@@ -30,10 +31,12 @@ function About() {
                 </div>
                 <img src={personalImage} alt="personal image..." />
             </section>
-            <Modal
+            <UiModal
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-            />
+            >
+                <Modal/>
+            </UiModal>
         </>
      );
 }

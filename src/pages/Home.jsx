@@ -44,8 +44,6 @@ function Home(props) {
 
   }, []);
 
-  console.log(pos)
-
   useEffect(() => {
     
   }, [pos]);
