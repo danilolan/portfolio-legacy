@@ -181,7 +181,7 @@ header{
                 }
 
                 &:hover{
-                    cursor: pointer;
+                    cursor:  url('../../assets/pointer.png') 12 12, auto;
                     ::after{
                         content: '';
                         width: 100%;

@@ -44,6 +44,12 @@ canvas{
 * {
     scrollbar-width: thin;
     scrollbar-color: rgb(43, 43, 43) rgb(10, 10, 10);
+    	
+    cursor: url('../assets/cursor.png') 12 12, auto;
+}
+
+button, a {
+    cursor:  url('../assets/pointer.png') 12 12, pointer !important;
 }
   
   /* Works on Chrome, Edge, and Safari */
